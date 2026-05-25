@@ -1,0 +1,42 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.calculator-container,
+.operator-container,
+.num-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.row-one,
+.row-two,
+.row-three,
+.row-four{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.row-four {
+  justify-content: stretch;
+}
+
+.row-four button {
+  flex: 1;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.display {
+  background-color: white;
+}
+
+.calculator-container {
+  background-color: grey;
+  padding: 2px;
+}
