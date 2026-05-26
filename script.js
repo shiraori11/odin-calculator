@@ -43,8 +43,21 @@ const changeDisplay = function(button) {
 
   if (currentDisplay === "0") {
     displayCalculation.textContent = button;
+  } else if (button === "=") {
+    calculatorNumTwo = displayCalculation.textContent;
+    calculatedNum = calculate(calculatorNumOne, calculatorNumTwo, calculatorOperator);
+
+    displayCalculation.textContent = calculatedNum;
+    calculatorOperator = null;
+    calculatorNumOne = calculatedNum;
+  } else if (button === "C") {
+    displayCalculation.textContent = 0;
+    calculatorNumOne = null;
+    calculatorNumTwo = null;
+    calculatorOperator = null;
   } else if (button.search(/[+-/*]/) > -1) {
-    if (calculatorOperator !== undefined) {
+
+    if (calculatorOperator != undefined) {
       calculatorNumTwo = displayCalculation.textContent;
       
       calculatedNum = calculate(calculatorNumOne, calculatorNumTwo, calculatorOperator);
@@ -52,14 +65,13 @@ const changeDisplay = function(button) {
       displayCalculation.textContent = calculatedNum;
       calculatorNumOne = calculatedNum;
       calculatorNumTwo = "calculated";
-      // calculatorOperator = undefined;
     } else {
       calculatorNumOne = displayCalculation.textContent;
       calculatorOperator = button;
       displayCalculation.textContent = 0;
     }
   } else {
-    if (calculatorOperator !== undefined && calculatorNumTwo === "calculated") {
+    if (calculatorOperator != undefined && calculatorNumTwo === "calculated") {
       displayCalculation.textContent = button;
       calculatorNumTwo = 0
     } else {
