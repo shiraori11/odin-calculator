@@ -9,7 +9,6 @@ body {
 
 button {
   flex: 1;
-  border-radius: 10px;
 }
 
 .operator {
@@ -34,7 +33,6 @@ button {
   max-height: 60%;
   background-color: grey;
   padding: 5px;
-  border-radius: 10px;
 }
 
 .row-one,
