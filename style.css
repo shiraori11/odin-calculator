@@ -63,12 +63,22 @@ p {
 
 .display-container {
   background-color: white;
-  overflow: scroll;
   margin: 10px 0;
   height: 60px;
   border-radius: 10px;
   display: flex;
   flex-direction: row-reverse;
+  justify-content: space-between;
   align-items: center;
   font-size: 50px;
+}
+
+.display {
+  display: flex;
+  flex-direction: row-reverse;
+  overflow: scroll;
+}
+
+.display-operator {
+  flex: 0;
 }
