@@ -1,22 +1,9 @@
 const calculate = function(num1, num2, operator) {
-  // const splitCalcu = calcu.split(/[+-/*]/)
-  // const x = parseInt(splitCalcu[0]);
-  // const y = parseInt(splitCalcu[1]);
-  //
-  // if (calcu.indexOf('+') > -1) {
-  //   return x + y;
-  // } else if (calcu.indexOf('-') > -1) {
-  //   return x - y;
-  // } else if (calcu.indexOf('*') > -1) {
-  //   return x * y;
-  // } else if (calcu.indexOf('/') > -1) {
-  //   return x / y;
-  // }
-  num1 = parseInt(num1);
-  num2 = parseInt(num2);
+  num1 = parseFloat(num1);
+  num2 = parseFloat(num2);
   switch (operator) {
     case "+":
-      return num1 + num2;
+      return num1 + num2
     case "-":
       return num1 - num2;
     case "/":
@@ -28,60 +15,6 @@ const calculate = function(num1, num2, operator) {
 }
 
 const changeDisplay = function(button) {
-  
-  // if (displayCalculation.textContent === "Calculator" || displayCalculation.textContent === "0") {
-  //   displayCalculation.textContent = button;
-  // } else if (button === "=") {
-  //   displayCalculation.textContent = calculate(displayCalculation.textContent);
-  // } else if (displayCalculation.textContent.search(/[+-/*]/) > -1 && button.search(/[+-/*]/) > -1) {
-  //   displayCalculation.textContent = calculate(displayCalculation.textContent);
-  // } else if (button === "C") {
-  //   displayCalculation.textContent = 0;
-  // } else {
-  //   displayCalculation.textContent += button;
-  // }
-  // currentDisplay = displayCalculation.textContent;
-  // if (button === "C") {
-  //     displayCalculation.textContent = 0;
-  //     displayOperator.textContent = ""
-  //     calculatorNumOne = null;
-  //     calculatorNumTwo = null;
-  //     calculatorOperator = null;
-  // } else if (currentDisplay === "0") {
-  //   if (button.search(/[+-/*0=]/) < 0) {
-  //     displayCalculation.textContent = button;
-  //   }
-  // } else if (button === "=") {
-  //   calculatorNumTwo = displayCalculation.textContent;
-  //   calculatedNum = calculate(calculatorNumOne, calculatorNumTwo, calculatorOperator);
-  //
-  //   displayCalculation.textContent = calculatedNum;
-  //   calculatorOperator = null;
-  //   calculatorNumOne = calculatedNum;
-  // } else if (button.search(/[+-/*]/) > -1) {
-  //   displayOperator.textContent = button;
-  //
-  //   if (calculatorOperator != undefined) {
-  //     calculatorNumTwo = displayCalculation.textContent;
-  //
-  //     calculatedNum = calculate(calculatorNumOne, calculatorNumTwo, button);
-  //
-  //     displayCalculation.textContent = calculatedNum;
-  //     calculatorNumOne = calculatedNum;
-  //     calculatorNumTwo = "calculated";
-  //   } else {
-  //     calculatorNumOne = displayCalculation.textContent;
-  //     calculatorOperator = button;
-  //     displayCalculation.textContent = 0;
-  //   }
-  // } else {
-  //   if (calculatorOperator != undefined && calculatorNumTwo === "calculated") {
-  //     displayCalculation.textContent = button;
-  //     calculatorNumTwo = 0
-  //   } else {
-  //     displayCalculation.textContent += button;
-  //   }
-  // }
   const calculatorNumTwo = displayCalculation.textContent;
   
   if (button === "C") {
@@ -89,8 +22,14 @@ const changeDisplay = function(button) {
     calculatorOperator = null;
     updateDisplayNumber(0);
     displayOperator.textContent = "";
+  } else if (button === ".") {
+    if (displayCalculation.textContent.indexOf(".") > -1) {
+      // do nothing
+    } else if (displayCalculation.textContent == 0) {
+      displayCalculation.textContent += button;
+    }
   } else if (isButtonOperator(button)) {
-    if (calculatorNumOne != undefined && calculatorOperator != undefined && calculateAnother === "no") {
+    if (calculatorNumOne != undefined && calculatorOperator != undefined) {
       calculatedNumber = calculate(calculatorNumOne, calculatorNumTwo, calculatorOperator);
       calculatorNumOne = calculatedNumber;
       calculateAnother = "yes";
@@ -103,7 +42,6 @@ const changeDisplay = function(button) {
     }
   } else if (button === "=") {
       if (calculatorOperator == undefined) {
-        console.log(calculateAnother);
         //donothing
       } else {
         calculatedNumber = calculate(calculatorNumOne, calculatorNumTwo, calculatorOperator);
