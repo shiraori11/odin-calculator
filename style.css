@@ -12,21 +12,26 @@ button {
   border-radius: 10px;
 }
 
+p {
+  margin: 0;
+  padding: 0;
+}
+
 .operator {
   flex: 1 1 auto;
-  width: 40px;
 }
 
 .calculator-container,
-.operator-container,
 .num-container {
   display: flex;
   flex-direction: column;
-  flex: 1;
+  flex: 4;
 }
 
 .operator-container {
-  flex: 0 1 auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .calculator-container {
@@ -56,7 +61,14 @@ button {
   flex: 1;
 }
 
-.display {
+.display-container {
   background-color: white;
-  overflow: hidden;
+  overflow: scroll;
+  margin: 10px 0;
+  height: 60px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  font-size: 50px;
 }

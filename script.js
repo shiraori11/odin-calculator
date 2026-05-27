@@ -20,7 +20,7 @@ const calculate = function(num1, num2, operator) {
     case "-":
       return num1 - num2;
     case "/":
-      return num1 - num2;
+      return num1 / num2;
     case "*":
       return num1 * num2;
     
@@ -42,7 +42,9 @@ const changeDisplay = function(button) {
   currentDisplay = displayCalculation.textContent;
 
   if (currentDisplay === "0") {
-    displayCalculation.textContent = button;
+    if (button.search(/[+-/*C0=]/) < 0) {
+      displayCalculation.textContent = button;
+    }
   } else if (button === "=") {
     calculatorNumTwo = displayCalculation.textContent;
     calculatedNum = calculate(calculatorNumOne, calculatorNumTwo, calculatorOperator);
